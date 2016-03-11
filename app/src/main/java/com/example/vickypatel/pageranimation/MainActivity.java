@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 
 public class MainActivity extends AppCompatActivity
@@ -50,10 +51,10 @@ public class MainActivity extends AppCompatActivity
 //        mPager.setPageTransformer(true,new DepthPageTransformer());
 //        mPager.setPageTransformer(true,new ParallaxPageTransformer());
         mPager.setPageTransformer(true,new SlideOverTransformer());
-        
+
         //Bind the title indicator to the adapter
-        TitlePageIndicator titleIndicator = (TitlePageIndicator)findViewById(R.id.titles);
-        titleIndicator.setViewPager(mPager);
+        CirclePageIndicator mIndicator = (CirclePageIndicator)findViewById(R.id.indicator);
+        mIndicator.setViewPager(mPager);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.viewpagerindicator.TitlePageIndicator;
+
 public class MainActivity extends AppCompatActivity
         implements testFragment.OnFragmentInteractionListener {
 
@@ -44,6 +46,14 @@ public class MainActivity extends AppCompatActivity
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
+//        mPager.setPageTransformer(true, new ZoomOutPageTransformer());
+//        mPager.setPageTransformer(true,new DepthPageTransformer());
+//        mPager.setPageTransformer(true,new ParallaxPageTransformer());
+        mPager.setPageTransformer(true,new SlideOverTransformer());
+        
+        //Bind the title indicator to the adapter
+        TitlePageIndicator titleIndicator = (TitlePageIndicator)findViewById(R.id.titles);
+        titleIndicator.setViewPager(mPager);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
